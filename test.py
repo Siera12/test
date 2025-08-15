@@ -16,6 +16,10 @@ RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 BLACK = (0, 0, 0)
 
+# Load background image (replace with your own image path if desired)
+background = pygame.Surface((WIDTH, HEIGHT))
+background.fill((200, 220, 255))  # Light blue background
+
 # Player settings
 player_size = 50
 player_x = WIDTH // 2 - player_size // 2
@@ -88,7 +92,7 @@ while True:
                 # gameover_sound.play()  # No sound available
 
     # Drawing
-    screen.fill(WHITE)
+    screen.blit(background, (0, 0))  # Draw background
     player_rect = pygame.Rect(player_x, player_y, player_size, player_size)
     pygame.draw.rect(screen, BLUE, player_rect)
     for obj in objects:
